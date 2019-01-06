@@ -1,16 +1,11 @@
 import * as mongoose from 'mongoose'
 
-export interface UsuarioAttributes {
-  // id: number
+export interface UsuarioDocument extends mongoose.Document {
   nome?: string
   login: string
   senha: string
   criado_em: Date
   alterado_em: Date
-}
-
-export interface UsuarioDocument extends UsuarioAttributes, mongoose.Document {
-  senhaCorreta(senhaHash: string, senhaTeste: string): boolean
 }
 
 export const UsuarioSchema: mongoose.Schema = new mongoose.Schema({
