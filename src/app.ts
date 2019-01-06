@@ -6,14 +6,6 @@ import * as graphqlHTTP from 'express-graphql'
 
 import schema from './graphql/schema'
 
-// const app = express()
-
-
-
-// app.listen(3000, () => {
-//   console.log('Listening at: http://localhost:3000/graphql')
-// })
-
 /**
  * Server instance
  * @class Server
@@ -33,12 +25,18 @@ export class Server {
     this.graphql()
   }
 
+  /**
+   * Set app configurations
+   */
   public config() {
     this.app.use(morgan('dev'))
     this.app.use(cors())
     this.app.use(compression())
   }
 
+  /**
+   * Configure GraphQL middleware
+   */
   public graphql() {
     this.app.use(
       '/graphql',
