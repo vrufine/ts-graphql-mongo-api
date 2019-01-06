@@ -5,3 +5,7 @@ export const app = Server.bootstrap().app
 export const server = app.listen(config.get('port'), () => {
   console.log('Server on http://localhost:' + config.get('port'))
 })
+
+server.on('error', err => {
+  console.error(err.message)
+})
